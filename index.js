@@ -8,13 +8,9 @@ export const pushBatch = (key, data) => {
 };
 
 export const getBatch = (key = false) => {
-  if (key !== false) return batchData[key];
-
-  return batchData;
+  return (key !== false) ? batchData[key] : batchData;
 };
 
 export const deleteBatch = (key = false) => {
-  if (key !== false) return batchData[key] = [];
-
-  return batchData = {};
+  return (key !== false) ? batchData[key] = [] : batchData = {};
 };
