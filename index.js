@@ -1,16 +1,18 @@
-let batchData = {};
+export class batches {
+  constructor() {
+    this.batchData = {};
+  }
 
-export const pushBatch = (key, data) => {
-  if (!(key in batchData)) batchData[key] = [];
-  batchData[key].push(data);
+  pushBatch(key, data) {
+    if (!(key in this.batchData)) this.batchData[key] = [];
+    return this.batchData[key].push(data);
+  };
 
-  return data;
-};
+  getBatch(key = false) {
+    return (key !== false) ? this.batchData[key] : this.batchData;
+  };
 
-export const getBatch = (key = false) => {
-  return (key !== false) ? batchData[key] : batchData;
-};
-
-export const deleteBatch = (key = false) => {
-  return (key !== false) ? batchData[key] = [] : batchData = {};
-};
+  deleteBatch(key = false) {
+    return (key !== false) ? this.batchData[key] = [] : this.batchData = {};
+  };
+}
