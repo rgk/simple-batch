@@ -1,4 +1,4 @@
-export class batches {
+export class Batches {
   constructor() {
     this.batchData = {};
   }
@@ -15,4 +15,8 @@ export class batches {
   deleteBatch(key = false) {
     return (key !== false) ? this.batchData[key] = [] : this.batchData = {};
   };
+
+  sortBatch(algo) {
+    return algo(this.batchData);
+  }
 }
