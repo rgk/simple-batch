@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Simple batch functions.",
   "main": "index.js",
+  "scripts": {
+    "test": "node ./tests/basic.js"
+  },
   "author": "rgk",
   "homepage": "https://github.com/rgk/simple-batch",
   "license": "MIT",
