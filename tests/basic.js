@@ -7,7 +7,7 @@ test('Get batch.', (t) => {
 
   t.deepEqual(
     batch.getBatch('data'),
-    { data: 'string' }
+    [{ data: 'string' }]
   );
 
   t.end();
