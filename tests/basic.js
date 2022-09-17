@@ -1,5 +1,5 @@
 import test from 'tape';
-import Batches from '../index.js';
+import { Batches } from '../index.js';
 
 test('Get batch.', (t) => {
   let batch = new Batches();
