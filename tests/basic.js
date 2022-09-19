@@ -24,3 +24,16 @@ test('Delete batch.', (t) => {
 
   t.end();
 });
+
+
+test('Delete whole batch.', (t) => {
+  let batch = new Batches();
+  batch.pushBatch('data', { data: 'string' });
+
+  t.deepEqual(
+    batch.deleteBatch(),
+    {}
+  );
+
+  t.end();
+});
