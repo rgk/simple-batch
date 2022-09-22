@@ -12,6 +12,10 @@ export class Batches {
     return (key !== false) ? this.batchData[key] : this.batchData;
   };
 
+  switchBatch(key, value, index) {
+    return this.batchData[key][index] = value;
+  }
+
   deleteBatch(key = false) {
     return (key !== false) ? this.batchData[key] = [] : this.batchData = {};
   };
