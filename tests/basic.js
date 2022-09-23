@@ -25,6 +25,18 @@ test('Get whole batch.', (t) => {
   t.end();
 });
 
+test('Switch batch.', (t) => {
+  let batch = new Batches();
+  batch.pushBatch('data', { data: 'string' });
+
+  t.deepEqual(
+    batch.switchBatch('data', 'string2', 0),
+    [{ data: 'string' }]
+  );
+
+  t.end();
+});
+
 test('Delete batch.', (t) => {
   let batch = new Batches();
   batch.pushBatch('data', { data: 'string' });
