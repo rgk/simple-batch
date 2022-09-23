@@ -31,7 +31,7 @@ test('Switch batch.', (t) => {
 
   t.deepEqual(
     batch.switchBatch('data', 'string2', 0),
-    [{ data: 'string' }]
+    'string2'
   );
 
   t.end();
