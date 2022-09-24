@@ -20,7 +20,7 @@ export class Batches {
     return (key !== false) ? this.batchData[key] = [] : this.batchData = {};
   };
 
-  sortBatch(algo) {
-    return algo(this.batchData);
+  sortBatch(algo = false) {
+    return algo ? algo(this.batchData) : Object.values(this.batchData).forEach(val => val.sort());
   }
 }
