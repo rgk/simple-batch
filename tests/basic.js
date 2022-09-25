@@ -68,8 +68,8 @@ test('Sort the batch.', (t) => {
   batch.pushBatch('data', { data2: 'string2' });
 
   t.deepEqual(
-    Object.values(batch).sortBatch((batch) => {
-      batch.forEach((value) => {
+    batch.sortBatch((aBatch) => {
+      Object.values(aBatch).forEach((value) => {
         value.reverse();
       });
       
