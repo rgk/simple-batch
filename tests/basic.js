@@ -61,3 +61,22 @@ test('Delete whole batch.', (t) => {
 
   t.end();
 });
+
+test('Sort the batch.', (t) => {
+  let batch = new Batches();
+  batch.pushBatch('data', { data: 'string' });
+  batch.pushBatch('data', { data2: 'string2' });
+
+  t.deepEqual(
+    batch.algo((batch) => {
+      batch.forEach((value) => {
+        value.reverse();
+      });
+      
+      return batch;
+    }),
+    { data: [ { data2: 'string2' }, { data: 'string' } ]}
+  );
+
+  t.end();
+});
