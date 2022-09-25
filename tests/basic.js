@@ -75,7 +75,7 @@ test('Sort the batch.', (t) => {
       
       return batch;
     }),
-    { data: [ { data2: 'string2' }, { data: 'string' } ]}
+    batch.getBatch()
   );
 
   t.end();
