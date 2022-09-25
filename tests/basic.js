@@ -73,7 +73,7 @@ test('Sort the batch.', (t) => {
         value.reverse();
       });
       
-      return batch;
+      return batch.getBatch();
     }),
     batch.getBatch()
   );
