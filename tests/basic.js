@@ -2,7 +2,7 @@ import test from 'tape';
 import { Batches } from '../index.js';
 
 test('Get batch.', (t) => {
-  let batch = new Batches();
+  const batch = new Batches();
   batch.pushBatch('data', { data: 'string' });
 
   t.deepEqual(
@@ -14,7 +14,7 @@ test('Get batch.', (t) => {
 });
 
 test('Get whole batch.', (t) => {
-  let batch = new Batches();
+  const batch = new Batches();
   batch.pushBatch('data', { data: 'string' });
 
   t.deepEqual(
@@ -26,7 +26,7 @@ test('Get whole batch.', (t) => {
 });
 
 test('Switch batch.', (t) => {
-  let batch = new Batches();
+  const batch = new Batches();
   batch.pushBatch('data', { data: 'string' });
 
   t.deepEqual(
@@ -38,7 +38,7 @@ test('Switch batch.', (t) => {
 });
 
 test('Delete batch.', (t) => {
-  let batch = new Batches();
+  const batch = new Batches();
   batch.pushBatch('data', { data: 'string' });
 
   t.deepEqual(
@@ -51,7 +51,7 @@ test('Delete batch.', (t) => {
 
 
 test('Delete whole batch.', (t) => {
-  let batch = new Batches();
+  const batch = new Batches();
   batch.pushBatch('data', { data: 'string' });
 
   t.deepEqual(
@@ -63,7 +63,7 @@ test('Delete whole batch.', (t) => {
 });
 
 test('Sort the batch.', (t) => {
-  let batch = new Batches();
+  const batch = new Batches();
   batch.pushBatch('data', { data: 'string' });
   batch.pushBatch('data', { data2: 'string2' });
 
