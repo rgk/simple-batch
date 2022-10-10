@@ -12,7 +12,8 @@ assert.deepEqual(
 
 assert.deepEqual(
   batch.getBatch(),
-  { data: [{ data: 'string' }]}
+  { data: [{ data: 'string' }],
+  data2: [{ data2: 'string2' }}
 );
 
 assert.deepEqual(
