@@ -1,82 +1,42 @@
-import test from 'tape';
+import assert from 'node:assert';
 import { Batches } from '../index.js';
 
-test('Get batch.', (t) => {
-  const batch = new Batches();
-  batch.pushBatch('data', { data: 'string' });
+const batch = new Batches();
+batch.pushBatch('data', { data: 'string' });
+batch.pushBatch('data2', { data2: 'string2' });
 
-  t.deepEqual(
-    batch.getBatch('data'),
-    [{ data: 'string' }]
-  );
+assert.deepEqual(
+  batch.getBatch('data'),
+  [{ data: 'string' }]
+);
 
-  t.end();
-});
+assert.deepEqual(
+  batch.getBatch(),
+  { data: [{ data: 'string' }]}
+);
 
-test('Get whole batch.', (t) => {
-  const batch = new Batches();
-  batch.pushBatch('data', { data: 'string' });
+assert.deepEqual(
+  batch.switchBatch('data', 'string2', 0),
+  'string2'
+);
 
-  t.deepEqual(
-    batch.getBatch(),
-    { data: [{ data: 'string' }]}
-  );
+assert.deepEqual(
+  batch.sortBatch((aBatch) => {
+    Object.values(aBatch).forEach((value) => {
+      value.reverse();
+    });
 
-  t.end();
-});
+    return batch.getBatch();
+  }),
+  batch.getBatch()
+);
 
-test('Switch batch.', (t) => {
-  const batch = new Batches();
-  batch.pushBatch('data', { data: 'string' });
+assert.deepEqual(
+  batch.deleteBatch('data'),
+  []
+);
 
-  t.deepEqual(
-    batch.switchBatch('data', 'string2', 0),
-    'string2'
-  );
-
-  t.end();
-});
-
-test('Delete batch.', (t) => {
-  const batch = new Batches();
-  batch.pushBatch('data', { data: 'string' });
-
-  t.deepEqual(
-    batch.deleteBatch('data'),
-    []
-  );
-
-  t.end();
-});
-
-
-test('Delete whole batch.', (t) => {
-  const batch = new Batches();
-  batch.pushBatch('data', { data: 'string' });
-
-  t.deepEqual(
-    batch.deleteBatch(),
-    {}
-  );
-
-  t.end();
-});
-
-test('Sort the batch.', (t) => {
-  const batch = new Batches();
-  batch.pushBatch('data', { data: 'string' });
-  batch.pushBatch('data', { data2: 'string2' });
-
-  t.deepEqual(
-    batch.sortBatch((aBatch) => {
-      Object.values(aBatch).forEach((value) => {
-        value.reverse();
-      });
-      
-      return batch.getBatch();
-    }),
-    batch.getBatch()
-  );
-
-  t.end();
-});
+assert.deepEqual(
+  batch.deleteBatch(),
+  {}
+);
