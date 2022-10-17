@@ -1,6 +1,8 @@
 export class Batches {
-  constructor() {
-    this.batchData = {};
+  batchData = {};
+  
+  constructor(batch = {}) {
+    this.batchData = batch;
   }
 
   pushBatch(key, data) {
