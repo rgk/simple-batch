@@ -11,7 +11,7 @@ export class Batches {
   };
 
   get(key = false) {
-    return (key !== false) ? this.data[key] : this.batchData;
+    return (key !== false) ? this.data[key] : this.data;
   };
 
   switch(key, value, index) {
