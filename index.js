@@ -5,7 +5,7 @@ export class Batches {
     this.data = batch;
   }
 
-  pushBatch(key, ...data) {
+  push(key, ...data) {
     if (!(key in this.data)) this.data[key] = [];
     return this.data[key].push(...data);
   };
