@@ -2,42 +2,42 @@ import assert from 'node:assert';
 import { Batches } from '../index.js';
 
 const batch = new Batches();
-batch.pushBatch('data', { data: 'string' });
-batch.pushBatch('data2', { data2: 'string2' });
+batch.push('data', { data: 'string' });
+batch.push('data2', { data2: 'string2' });
 
 assert.deepEqual(
-  batch.getBatch('data'),
+  batch.get('data'),
   [{ data: 'string' }]
 );
 
 assert.deepEqual(
-  batch.getBatch(),
+  batch.get(),
   { data: [{ data: 'string' }],
   data2: [{ data2: 'string2' }]}
 );
 
 assert.deepEqual(
-  batch.switchBatch('data', 'string2', 0),
+  batch.switch('data', 'string2', 0),
   'string2'
 );
 
 assert.deepEqual(
-  batch.sortBatch((aBatch) => {
+  batch.sort((aBatch) => {
     Object.values(aBatch).forEach((value) => {
       value.reverse();
     });
 
-    return batch.getBatch();
+    return batch.get();
   }),
-  batch.getBatch()
+  batch.get()
 );
 
 assert.deepEqual(
-  batch.deleteBatch('data'),
+  batch.delete('data'),
   []
 );
 
 assert.deepEqual(
-  batch.deleteBatch(),
+  batch.delete(),
   {}
 );

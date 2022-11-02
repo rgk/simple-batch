@@ -1,28 +1,28 @@
 export class Batches {
-  batchData = {};
+  data = {};
   
   constructor(batch = {}) {
-    this.batchData = batch;
+    this.data = batch;
   }
 
   pushBatch(key, ...data) {
-    if (!(key in this.batchData)) this.batchData[key] = [];
-    return this.batchData[key].push(...data);
+    if (!(key in this.data)) this.data[key] = [];
+    return this.data[key].push(...data);
   };
 
-  getBatch(key = false) {
-    return (key !== false) ? this.batchData[key] : this.batchData;
+  get(key = false) {
+    return (key !== false) ? this.data[key] : this.batchData;
   };
 
-  switchBatch(key, value, index) {
-    return this.batchData[key][index] = value;
+  switch(key, value, index) {
+    return this.data[key][index] = value;
   }
 
-  deleteBatch(key = false) {
-    return (key !== false) ? this.batchData[key] = [] : this.batchData = {};
+  delete(key = false) {
+    return (key !== false) ? this.data[key] = [] : this.data = {};
   };
 
-  sortBatch(algo = false) {
-    return algo ? algo(this.batchData) : Object.values(this.batchData).forEach(val => val.sort());
+  sort(algo = false) {
+    return algo ? algo(this.data) : Object.values(this.data).forEach(val => val.sort());
   }
 }
